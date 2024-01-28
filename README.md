@@ -1,5 +1,9 @@
 # Book
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/958bbd5b-0242-480f-a01a-e86ded2dcc35/deploy-status)](https://app.netlify.com/sites/book-shop-angular/deploys)
+
+[![Node.js CI](https://github.com/Lokankara/Book/actions/workflows/node.js.yml/badge.svg)](https://github.com/Lokankara/Book/actions/workflows/node.js.yml)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
 
 ## Development server
@@ -22,6 +26,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

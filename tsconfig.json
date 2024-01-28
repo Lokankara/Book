@@ -1,18 +1,53 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
+  "include": [
+    "src/**/*.ts",
+    "setup-jest.ts",
+    "jest.config.js",
+    "node_modules/@types"
+  ],
+  "exclude": [
+    "node_modules",
+    ".eslintrc.js"
+  ],
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
+    "esModuleInterop": true,
+    "types": [
+      "jest",
+      "node",
+      "jest-preset-angular"
+    ],
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "paths": {
+      "@angular/core/testing": [
+        "app/core/testing"
+      ],
+      "#/*": [
+        "./*"
+      ],
+      "@/*": [
+        "src/app/*"
+      ]
+    },
+    "typeRoots": [
+      "src/types",
+      "node_modules/@types",
+      "node_modules/jest-preset-angular/types"
+    ],
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "strictPropertyInitialization": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
     "sourceMap": true,
     "declaration": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
