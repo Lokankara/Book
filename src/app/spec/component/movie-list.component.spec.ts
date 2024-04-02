@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { MovieListComponent } from '../../page/movie-list/movie-list.component';
+import { MovieListComponent } from '@app/page/movie-list/movie-list.component';
+import {
+  ActionsSubject,
+  ReducerManager, ReducerManagerDispatcher,
+  StateObservable,
+  Store, StoreModule
+} from '@ngrx/store';
 
 describe('MovieListComponent', () => {
   let component: MovieListComponent;
@@ -8,9 +13,19 @@ describe('MovieListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MovieListComponent]
-    })
-      .compileComponents();
+      declarations: [MovieListComponent],
+      providers: [
+        Store,
+        ReducerManager,
+        ActionsSubject,
+        StoreModule,
+        StateObservable,
+        ReducerManagerDispatcher
+      ],
+      imports: [
+        StoreModule.forRoot({})
+      ]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MovieListComponent);
     component = fixture.componentInstance;

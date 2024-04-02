@@ -16,11 +16,14 @@ export const searchMovie = createAction(
 );
 
 export const searchMovieSuccess = createAction(
-  '[Movie] Search Movie Success', props<{ movie: MovieDetails }>());
+  '[Movie] Search Movie Success',
+  props<{ movie: MovieDetails }>());
 
 
 export const searchMoviesSuccess = createAction(
-  '[Movie] Search Movies Success', props<{ movies: Movie[] }>());
+  '[Movie] Search Movies Success',
+  props<{ movies: Movie[] }>());
 
 export const searchMoviesFailure = createAction(
-  '[Movie] Search Movies Failure', props<{ error: unknown }>());
+  '[Movie] Search Movies Failure',
+  props<{ error: unknown }>());

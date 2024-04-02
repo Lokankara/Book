@@ -2,10 +2,10 @@ module.exports = {
   preset: 'jest-preset-angular',
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
   moduleNameMapper: { '^@app/(.*)$': '<rootDir>/src/app/$1' },
-  include: ['src/**/*.ts', 'jest.config.js'],
   clearMocks: true,
   collectCoverage: true,
   coverageDirectory: 'coverage',
+  testMatch: ['<rootDir>/src/**/*.spec.ts'],
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [

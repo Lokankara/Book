@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://book-691o.onrender.com",
+    "target": "https://api.themoviedb.org/3/movie",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",
