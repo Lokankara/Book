@@ -1,0 +1,29 @@
+<!--<button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">-->
+<!--  Previous-->
+<!--</button>-->
+<!--<button (click)="onPageChange(currentPage + 1)">Next</button>-->
+<!--<div *ngIf="books$ | async as books">-->
+<!--  <div *ngIf="books.length > 0">-->
+<!--    <h2>Books</h2>-->
+<!--    <ul>-->
+<!--      <li *ngFor="let book of books">-->
+<!--        {{ book.title }} by {{ book.authors }}-->
+<!--        <div style="position: relative;-->
+<!--        width: 50%; height: 0;-->
+<!--        padding-bottom: 75%;">-->
+<!--          <img *ngIf="book.coverUrl" [ngSrc]="book.coverUrl" alt="Book Cover"-->
+<!--               fill style="position: absolute; width: 50%; height: 50%;">-->
+<!--        </div>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--  <div *ngIf="books.length === 0 && !(loading$ | async)">-->
+<!--    No books available.-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div *ngIf="(loading$ | async)">-->
+<!--  Loading books...-->
+<!--</div>-->
+<!--<div *ngIf="(error$ | async)">-->
+<!--  Error loading books: {{ error$ | async }}-->
+<!--</div>-->

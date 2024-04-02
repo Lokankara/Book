@@ -1,0 +1,36 @@
+<button (click)="onPageChange(currentPage - 1)"
+        [disabled]="currentPage === 1">
+  Previous
+</button>
+
+<button (click)="onPageChange(currentPage + 1)">Next</button>
+
+<div>
+  <h2>Movies</h2>
+  <div *ngIf="movies$ | async as movies">
+    <div *ngIf="movies.length > 0">
+      <ul class="flex-container">
+        <li *ngFor="let movie of movies" class="flex-item" (click)="getMovieById(movie.id)">
+
+          <img
+            [ngSrc]="'https://image.tmdb.org/t/p/w500' + (movie?.poster_path || '')"
+            alt="Movie Poster"
+            width="300"
+            height="400"
+            class="movie-poster"
+            priority>
+          <h3 class="movie-title">{{ movie.title }}</h3>
+          <p class="movie-overview">{{ movie.overview }}</p>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="movies.length === 0 && !(loading$ | async)" class="no-movies">
+      No movies available.
+    </div>
+
+    <div *ngIf="loading$ | async" class="loading">Loading movies...</div>
+    <div *ngIf="error$ | async as error" class="error">Error loading
+      movies: {{ error }}
+    </div>
+  </div>
+</div>
