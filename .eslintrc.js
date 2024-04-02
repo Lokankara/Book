@@ -1,74 +1,87 @@
 module.exports = {
-  root: true,
-  env: {
-    es6: true,
-    node: true,
-    es2021: true,
-    browser: true,
-    "jest/globals": true
-  },
-  extends: [
-    'airbnb-base',
-    'eslint:recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
-    'plugin:jest/recommended',
-    'plugin:@typescript-eslint/recommended',
-  ],
-  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
+    ecmaVersion: 2022,
+    project: './tsconfig.json',
     tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json'],
-    ecmaFeatures: {
-      jsx: true,
-    },
+    sourceType: 'module'
   },
-  ignorePatterns: ['.eslintrc.js'],
-  plugins: ['@typescript-eslint', 'jest'],
+  env: {
+    'jest': true,
+    browser: true,
+    node: true,
+    es6: true
+  },
   settings: {
     'import/resolver': {
       node: {
-        paths: ["src"],
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        moduleDirectory: ['node_modules', 'src'],
-      },
-      typescript: {},
-    },
-  },
-  overrides: [
-    {
-      files: ['*.html'],
-      plugins: ['html'],
-      rules: {}
+        paths: ['node_modules', 'src']
+      }
     }
+  },
+  parser: '@typescript-eslint/parser',
+  plugins: [
+    'jest',
+    '@typescript-eslint',
+    '@angular-eslint/eslint-plugin'
   ],
+  extends: [
+    'eslint:recommended',
+    'airbnb-typescript/base',
+    'plugin:@angular-eslint/recommended',
+    'plugin:@angular-eslint/template/process-inline-templates',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:import/errors'
+  ],
+  ignorePatterns: ['webpack.config.js', '*.html', 'projects/**/*', 'coverage/'],
   rules: {
-    '@typescript-eslint/no-namespace': 'off',
-    '@typescript-eslint/class-methods-use-this': 'error',
-    'import/no-extraneous-dependencies': ['error', {
-      devDependencies: ['**/*.test.ts', '**/*.spec.ts', '@jest/globals', 'jest-preset-angular/setup-jest'],
-    }],
-    'import/prefer-default-export': 'off',
-    'import/extensions': [
+    '@angular-eslint/directive-selector': [
       'error',
-      'ignorePackages',
       {
-        ts: 'never',
-      },
+        type: 'attribute',
+        prefix: 'app',
+        style: 'camelCase'
+      }
     ],
-    'import/namespace': 'off',
-    'no-shadow': 'off',
-    '@typescript-eslint/no-shadow': 'warn',
-    'linebreak-style': 'off',
+    '@angular-eslint/component-selector': [
+      'error',
+      {
+        type: 'element',
+        prefix: 'app',
+        style: 'kebab-case'
+      }
+    ],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          '**/*.test.js',
+          '**/*.test.jsx',
+          '**/*.test.ts',
+          '**/*.test.tsx',
+          '**/*.spec.js',
+          '**/*.spec.jsx',
+          '**/*.spec.ts',
+          '**/*.spec.tsx',
+          'setup-jest.ts'
+        ]
+      }
+    ],
+    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/comma-dangle': 'off',
+    '@typescript-eslint/dot-notation': 'off',
+    '@typescript-eslint/no-implied-eval': 'off',
+    '@typescript-eslint/naming-convention': 'off',
+    '@typescript-eslint/object-curly-spacing': 'off',
+    '@typescript-eslint/array-type': 'error',
+    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/quotes': ['error', 'single', {'allowTemplateLiterals': true}],
     'no-console': 'off',
     'no-extra-parens': ['error', 'all'],
     'array-callback-return': 'error',
-    curly: 'error',
+    'curly': 'error',
     'default-case': 'warn',
-    eqeqeq: ['error', 'always'],
+    'eqeqeq': ['error', 'always'],
     'guard-for-in': 'warn',
     'no-caller': 'error',
     'no-empty-function': 'error',
@@ -78,7 +91,6 @@ module.exports = {
     'no-lone-blocks': 'error',
     'no-multi-spaces': 'error',
     'no-new': 'warn',
-    'no-trailing-spaces': 'off',
     'no-return-assign': 'error',
     'no-self-compare': 'error',
     'no-useless-call': 'error',
@@ -87,23 +99,22 @@ module.exports = {
     'brace-style': 'error',
     'comma-dangle': ['error', 'never'],
     'func-call-spacing': ['error', 'never'],
-    'max-len': ['error', {code: 120, ignoreComments: true}],
-    'new-cap': ['error', {newIsCap: true, capIsNew: false}],
+    'max-len': ['error', {'code': 120, 'ignoreComments': true}],
+    'new-cap': ['error', {'newIsCap': false, 'capIsNew': false}],
     'new-parens': 'error',
     'no-nested-ternary': 'error',
     'no-unneeded-ternary': 'error',
-    quotes: [
-      'warn',
-      'single',
-      {avoidEscape: true, allowTemplateLiterals: true}
-    ],
-    'arrow-spacing': ['error', {before: true, after: true}],
+    'quotes': ['warn', 'single', {
+      'avoidEscape': true,
+      'allowTemplateLiterals': true
+    }],
+    'arrow-spacing': ['error', {'before': true, 'after': true}],
     'no-useless-computed-key': 'error',
     'no-useless-constructor': 'error',
     'no-prototype-builtins': 'off',
     'no-var': 'warn',
-    'no-unused-vars': ['error', {vars: 'local', args: 'none'}],
-    'no-magic-numbers': ['warn', {ignore: [0, 1, -1]}],
-    'class-methods-use-this': 'off'
+    'no-magic-numbers': ['warn', {'ignore': [0, 1, 2]}],
+    'import/named': 'off',
+    'import/no-unresolved': 'off'
   }
 };

@@ -1,52 +1,16 @@
 {
   "compileOnSave": false,
-  "include": [
-    "src/**/*.ts",
-    "setup-jest.ts",
-    "jest.config.js",
-    "node_modules/@types"
-  ],
-  "exclude": [
-    "node_modules",
-    ".eslintrc.js"
-  ],
   "compilerOptions": {
-    "esModuleInterop": true,
-    "types": [
-      "jest",
-      "node",
-      "jest-preset-angular"
-    ],
-    "baseUrl": "./src",
-    "outDir": "./dist",
-    "rootDir": "./",
-    "paths": {
-      "@angular/core/testing": [
-        "app/core/testing"
-      ],
-      "#/*": [
-        "./*"
-      ],
-      "@/*": [
-        "src/app/*"
-      ]
-    },
-    "typeRoots": [
-      "src/types",
-      "node_modules/@types",
-      "node_modules/jest-preset-angular/types"
-    ],
+    "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "strictPropertyInitialization": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
+    "noImplicitAny": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
@@ -54,15 +18,40 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "jest-preset-angular/types"
+    ],
+    "types": [
+      "jest",
+      "node"
+    ],
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@app/*": [
+        "src/app/*"
+      ],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    ".eslintrc.js",
+    "jest.config.js",
+    "setup-jest.ts"
+  ],
+  "files": [
+    "src/main.ts"
+  ]
 }

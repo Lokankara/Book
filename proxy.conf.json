@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://book-691o.onrender.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "headers": {
+      "Access-Control-Allow-Origin": "*"
+    }
+  }
+}
